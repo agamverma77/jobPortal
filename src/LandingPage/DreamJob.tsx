@@ -13,7 +13,7 @@ const DreamJob = () =>{
                      <TextInput className="bg-mine-shaft-900 rounded-lg p-1 px=2 text-mine-shaft-100 [&_input]:!text-mine-shaft-100"
                      variant="unstyled" label="Job Type" placeholder="Fulltime"/>
                 
-                <div className="flex items-center justify-center h-12 w-20 bg-bright-sun-400 text-mine-shaft-100 rounded-lg p-2 hover:bg-bright-sun-500
+                <div className="flex items-center justify-center h-100 w-20 bg-bright-sun-400 text-mine-shaft-100 rounded-lg p-2 hover:bg-bright-sun-500
                 cursor-pointer">
                     <IconSearch className="h-85%] w-[85%]"/> 
                 </div>
