@@ -21,6 +21,7 @@ function App() {
     <MantineProvider theme={theme}>
       <BrowserRouter>
       <Routes>
+        
         <Route path='*' element={<HomePage/>} />
       </Routes>
       <Footer/>
