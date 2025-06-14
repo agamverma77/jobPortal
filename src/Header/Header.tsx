@@ -3,7 +3,7 @@ import { IconAnchor, IconAsset, IconBell, IconSettings } from '@tabler/icons-rea
 import NavLinks from './NavLinks';
 
 const Header=()=>{
-    return <div className="w-full bg-mine-shaft-950 px-6 text-white h-20 flex justify-between items-center ">
+    return <div className="w-full bg-mine-shaft-950 px-6 text-white h-20 flex justify-between items-center">
         <div className='flex gap-1 items-center text-bright-sun-400'>
             <IconAnchor className='h-10 w-8' stroke={2.5}/>
             <div className='text-3xl font-semibold'>JobHook</div>
