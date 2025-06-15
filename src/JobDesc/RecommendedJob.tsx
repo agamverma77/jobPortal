@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import JobCard from "../FindJobs/JobCard";
 import { jobList } from "../Data/JobsData";
 
+
 const RecommendedJob = () => {
   const { id } = useParams();
 
