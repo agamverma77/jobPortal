@@ -4,7 +4,7 @@ import ApplicationForm from "./ApplicationForm";
 
 const ApplyJobComp = (props:any) => {
     return <div className="w-2/3 bs-mx:w-4/5 sm-mx:w-full m-auto">
-    jb
+        
         <div className="flex justify-between items-center">
             <div className="flex items-center gap-2">
                 <div className="p-3 bg-mine-shaft-800 rounded-xl flex shrink-0 ">
