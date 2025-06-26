@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Document(collection="users") // users mapped to db table
 public class User {
 	@Id // id of user
-	private String id;
+	private Long id;
 	private String name;
 	@Indexed(unique = true)//this is used to insert only unique entries in db here for db
 	private String email;
