@@ -5,6 +5,7 @@ import { createTheme, Divider, MantineProvider, Slider } from '@mantine/core';
 import '@mantine/core/styles.css';
 import '@mantine/carousel/styles.css';
 import '@mantine/tiptap/styles.css';
+import '@mantine/notifications/styles.css';
 import '@mantine/dates/styles.css';
 import HomePage from './Pages/HomePage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -12,6 +13,7 @@ import Footer from './Footer/Footer';
 import FindJobsPage from './Pages/FindJobsPage';
 import Header from './Header/Header';
 import '@fontsource/poppins';
+import { Notifications } from '@mantine/notifications';
 
 
 function App() {
@@ -26,7 +28,9 @@ function App() {
   })
   return (
     <MantineProvider theme={theme}>
+      <Notifications  position="top-center" zIndex={2001} />
       <BrowserRouter>
+
       <Header/>
       <Routes>
         <Route path='/find-jobs' element={<FindJobsPage/>}/>
