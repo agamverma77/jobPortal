@@ -1,6 +1,8 @@
 package com.jobportal.Job.Portal.utility;
 
 
+import java.security.SecureRandom;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.FindAndModifyOptions;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -30,5 +32,14 @@ public class Utilities {
 		Sequence seq=mongoOperation.findAndModify(query, update, options,Sequence.class);
 		if(seq==null) throw new JobPortalException("Unable to get sequence id for key: "+key);
 		return seq.getSeq();
+	}
+
+	public static String generateOTP() {
+		StringBuilder otp = new StringBuilder();
+		SecureRandom secureRandom = new SecureRandom();
+		for (int i = 0; i < 6; i++) {
+			otp.append(secureRandom.nextInt(10));
+		}
+		return otp.toString();
 	}
 }
