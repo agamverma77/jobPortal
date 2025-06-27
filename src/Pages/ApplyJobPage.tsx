@@ -1,10 +1,8 @@
 import { Button, Divider } from "@mantine/core";
-
 import { IconArrowLeft } from "@tabler/icons-react";
 import { useNavigate, useParams } from "react-router-dom";
-
-import ApplyJobComp from "../ApplyJob/ApplyJobComp";
 import { jobList } from "../Data/JobsData";
+import ApplyJobComp from "../Components/ApplyJob/ApplyJobComp";
 
 const ApplyJobPage = () => {
   const navigate = useNavigate();

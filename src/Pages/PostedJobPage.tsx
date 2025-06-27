@@ -1,12 +1,13 @@
 import {Button, Divider, Drawer } from "@mantine/core";
 import { useEffect, useState } from "react";
-import { getJobsPostedBy } from "../Services/JobService";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { hideOverlay, showOverlay } from "../Slices/OverlaySlice";
-import PostedJob from "../PostedJob/PostedJob";
-import PostedJobDesc from "../PostedJob/PostedJobDesc";
+
+import PostedJob from "../Components/PostedJob/PostedJob";
+import PostedJobDesc from "../Components/PostedJob/PostedJobDesc";
+import { getJobsPostedBy } from "../Services/JobService";
 
 const PostedJobPage = () => {
     const navigate=useNavigate();

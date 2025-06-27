@@ -1,11 +1,6 @@
 import { Divider } from "@mantine/core";
-<<<<<<< HEAD
-import SearchBar from "../FindJobs/SearchJobs";
-=======
-
-import Talents from "../FindTalent/Talents";
-import SearchBar from "../FindTalent/SearchBar";
->>>>>>> master
+import SearchBar from "../Components/FindTalent/SearchBar";
+import Talents from "../Components/FindTalent/Talents";
 
 const FindTalentPage=()=>{
     return <div className="min-h-[90vh] bg-mine-shaft-950 font-['poppins']">
