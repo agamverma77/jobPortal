@@ -34,11 +34,15 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private OTPRepository otpRepository;
+	
+	@Autowired
+	private ProfileService profileService;
 
 	@Override
 	public UserDTO registerUser(UserDTO userDTO) throws Exception {
 		Optional<User> optional=userRepository.findByEmail(userDTO.getEmail());
 		if(optional.isPresent()) throw new JobPortalException("USER_FOUND");
+		userDTO.setProfileId(profileService.createProfile(userDTO.getEmail()));
 		userDTO.setId(Utilities.getNextSequence("users"));
 		userDTO.setPassword(passwordEncoder.encode(userDTO.getPassword()));
 		User user= userDTO.toEntity(); //this converts dto to user as repository works on user not dto
