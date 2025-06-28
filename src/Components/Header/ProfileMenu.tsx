@@ -11,8 +11,8 @@ import {
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { removeUser } from '../../Slices/UserSlice';
 import { removeJwt } from '../../Slices/JwtSlice';
+import { removeUser } from '../../Slices/UserSlice';
 
 const ProfileMenu = () => {
     const user=useSelector((state:any)=>state.user);
