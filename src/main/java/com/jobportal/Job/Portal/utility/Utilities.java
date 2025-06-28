@@ -22,7 +22,7 @@ public class Utilities {
 		Utilities.mongoOperation=mongoOperation;
 	}
 	
-	public static Long getNextSequence(String key) throws Exception
+	public static Long getNextSequence(String key) throws JobPortalException
 	{
 		Query query=new Query(Criteria.where("_id").is(key));
 		Update update=new Update();
