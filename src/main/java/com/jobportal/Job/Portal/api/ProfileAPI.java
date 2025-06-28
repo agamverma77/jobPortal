@@ -18,8 +18,8 @@ import com.jobportal.Job.Portal.exception.JobPortalException;
 import com.jobportal.Job.Portal.service.ProfileService;
 @RestController
 @CrossOrigin
-@RequestMapping("/profiles")
 @Validated
+@RequestMapping("/profiles")
 public class ProfileAPI {
 	@Autowired
 	private ProfileService profileService;
