@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jobportal.Job.Portal.dto.ApplicantDTO;
+import com.jobportal.Job.Portal.dto.Application;
 import com.jobportal.Job.Portal.dto.ApplicationStatus;
 import com.jobportal.Job.Portal.dto.JobDTO;
 import com.jobportal.Job.Portal.entity.Applicant;
@@ -51,5 +52,28 @@ public class JobServiceImpl implements JobService {
 		job.setApplicants(applicants);//job me applicant array ko set kr denge
 		jobRepository.save(job);//job ko save kr denge in db
 	}
+
+	@Override
+	public List<JobDTO> getJobsPostedBy(Long id) {
+		return jobRepository.findByPostedBy(id).stream().map((x)->x.toDTO()).toList(); 
+	}
+
+	@Override
+	public void changeAppStatus(Application application) throws JobPortalException {
+		Job job = jobRepository.findById(application.getId()).orElseThrow(() -> new JobPortalException("JOB_NOT_FOUND"));//we get the job
+		List<Applicant> apps = job.getApplicants().stream().map((x) -> {
+			if (application.getApplicantId() == x.getApplicantId()) {//if id is same then set its application status
+				x.setApplicationStatus(application.getApplicationStatus()); 
+				if(application.getApplicationStatus().equals(ApplicationStatus.INTERVIEWING)) {
+					x.setInterviewTime(application.getInterviewTime());//if status is interviewing set interview time
+				}
+			}
+			return x;//if status is not interviewing and something else then it simply changes the status
+		}).toList(); //we get the applicants in list
+		job.setApplicants(apps);//we save that list in job
+		jobRepository.save(job);//and save the job
+		
+	}
+
 	
 }
