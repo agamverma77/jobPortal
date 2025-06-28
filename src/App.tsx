@@ -14,6 +14,7 @@ import '@fontsource/poppins';
 import { Notifications } from '@mantine/notifications';
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
+import AppRoutes from './Pages/AppRoutes';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
       <BrowserRouter>
 
       <Header/>
+      
       <Routes>
         <Route path='/find-jobs' element={<FindJobsPage/>}/>
         <Route path='*' element={<HomePage/>} />
@@ -39,6 +41,7 @@ function App() {
       </Routes>
       <Footer/>
       </BrowserRouter>
+      <AppRoutes/>
     </MantineProvider>
     
   );
