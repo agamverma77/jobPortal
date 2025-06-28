@@ -32,7 +32,7 @@ public class UserAPI {
 	private UserService userService;
 	
 	@PostMapping("/register")
-	public ResponseEntity<UserDTO> registerUser(@RequestBody @Valid UserDTO userDTO) throws Exception
+	public ResponseEntity<UserDTO> registerUser(@RequestBody @Valid UserDTO userDTO) throws JobPortalException
 	{
 		userDTO=userService.registerUser(userDTO);//service will give response
 		//we need to return it

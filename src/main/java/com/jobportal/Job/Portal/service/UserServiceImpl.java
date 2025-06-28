@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
 	private ProfileService profileService;
 
 	@Override
-	public UserDTO registerUser(UserDTO userDTO) throws Exception {
+	public UserDTO registerUser(UserDTO userDTO) throws JobPortalException {
 		Optional<User> optional=userRepository.findByEmail(userDTO.getEmail());
 		if(optional.isPresent()) throw new JobPortalException("USER_FOUND");
 		userDTO.setProfileId(profileService.createProfile(userDTO.getEmail()));
