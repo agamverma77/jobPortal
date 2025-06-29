@@ -1,9 +1,6 @@
-
-
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import FindJobsPage from './FindJobsPage';
 import Header from '../Components/Header/Header';
-import JobPage from './JobPage';
 import ApplyJobPage from './ApplyJobPage';
 import FindTalentPage from './FindTalentPage';
 import TalentProfilePage from './TalentProfilePage';
@@ -21,6 +18,7 @@ import PublicRoute from '../Services/PublicRoute';
 import Unauthorized from './UnauthroizedPage';
 import NotFoundPage from './NotFoundPage';
 import { LoadingOverlay } from '@mantine/core';
+import JobPage from './JobPage';
 
 const AppRoutes = () => {
   const overlay = useSelector((state: any) => state.overlay);
