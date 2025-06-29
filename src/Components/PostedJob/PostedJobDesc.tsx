@@ -1,7 +1,7 @@
 import { Badge, Divider, Tabs } from "@mantine/core";
 import Job from "../JobDesc/Job";
-import TalentCard from "../FindTalent/TalentCard";
 import { useEffect, useState } from "react";
+import TalentCard from "../FindTalent/TalentCard";
 
 const PostedJobDesc = (props:any) => {
     const [tab, setTab]=useState("overview");

@@ -1,4 +1,4 @@
-import { companyData } from "../Data/Company";
+import { companyData } from "../../Data/Company";
 
 
 const AboutComp = () => {

@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { successNotification } from "../../Services/NotificationService";
 import { changeProfile } from "../../Slices/ProfileSlice";
 import { useMediaQuery } from "@mantine/hooks";
-import { fields } from "../Data/PostJob";
+import { fields } from "../../Data/PostJob";
 
 const CertiInput = (props: any) => {
     const select = fields;

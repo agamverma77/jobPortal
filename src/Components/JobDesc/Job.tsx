@@ -2,7 +2,8 @@ import { ActionIcon, Button, Divider } from "@mantine/core";
 
 import { IconBookmark, IconBookmarkFilled } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
-import { card } from "../Data/JobDescData";
+import { card } from "../../Data/JobDescData";
+
 
 const Job = () => {
   const cleanHTML = `<h4>Job Description</h4><p>This is a sample job description.</p><ul><li>Requirement 1</li><li>Requirement 2</li></ul>`;

@@ -3,11 +3,12 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
-import { hideOverlay, showOverlay } from "../Slices/OverlaySlice";
+
 
 import PostedJob from "../Components/PostedJob/PostedJob";
 import PostedJobDesc from "../Components/PostedJob/PostedJobDesc";
 import { getJobsPostedBy } from "../Services/JobService";
+import { hideOverlay, showOverlay } from "../Slices/OverlaySlice";
 
 const PostedJobPage = () => {
     const navigate=useNavigate();

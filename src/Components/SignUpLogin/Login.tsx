@@ -8,9 +8,10 @@ import ResetPassword from "./ResetPassword";
 import { errorNotification, successNotification } from "../../Services/NotificationService";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../Slices/UserSlice";
-import { setJwt } from "../../Slices/JwtSlice";
+
 import { loginUser } from "../../Services/AuthService";
 import { jwtDecode } from "jwt-decode";
+import { setJwt } from "../../Slices/JwtSlice";
 
 const Login = () => {
     const dispatch = useDispatch();

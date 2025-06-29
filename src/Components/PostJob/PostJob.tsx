@@ -6,10 +6,12 @@ import { successNotification } from "../../Services/NotificationService";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { content, fields } from "../Data/PostJob";
+
 
 import TextEditor from "./TextEditor";
-import { jobList } from "../Data/JobsData";
+
+import { content, fields } from "../../Data/PostJob";
+import { jobList } from "../../Data/JobsData";
 
 const PostJob = () => {
   const { id } = useParams();

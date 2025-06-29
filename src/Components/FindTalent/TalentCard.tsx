@@ -105,7 +105,13 @@ const TalentCard = (props: any) => {
             {(props.invited || props.posted) && <Button color="brightSun.4" variant="filled" onClick={openApp} autoContrast fullWidth>View Application</Button>}
         <Modal opened={opened} onClose={close} radius="lg" title="Schedule Interview" centered>
             <div className="flex flex-col gap-4">
-                <DateInput value={date} onChange={setDate} minDate={new Date()} label="Date" placeholder="Enter Date" />
+                <DateInput
+  value={date}
+  onChange={(value) => setDate(value ? new Date(value) : null)}
+  minDate={new Date()}
+  label="Date"
+  placeholder="Enter Date"
+/>
                 <TimeInput label="Time" ref={ref} value={time}
       onChange={(event) => setTime(event.currentTarget.value)}  minTime="" onClick={() => ref.current?.showPicker()} />
                 <Button onClick={()=>handleOffer("INTERVIEWING")} color="brightSun.4" variant="light" fullWidth>Schedule</Button>

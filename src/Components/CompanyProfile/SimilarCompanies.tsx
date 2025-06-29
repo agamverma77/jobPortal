@@ -1,4 +1,4 @@
-import { similar } from "../Data/Company";
+import { similar } from "../../Data/Company";
 import CompanyCard from "./CompanyCard";
 
 

@@ -1,5 +1,6 @@
 import { Avatar } from "@mantine/core";
-import { work } from "../Data/Data";
+import { work } from "../../Data/Data";
+
 
 
 const Working = () => {

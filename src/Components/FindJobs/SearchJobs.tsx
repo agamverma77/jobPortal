@@ -3,9 +3,9 @@ import { Button, Collapse, Divider, RangeSlider } from "@mantine/core";
 import MultiInput from "./MultiInput";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateFilter } from "../../Slices/FilterSlice";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
-import { dropdownData } from "../Data/JobsData";
+import { updateFilter } from "../../Slices/FilterSlice";
+import { dropdownData } from "../../Data/JobsData";
 
 const SearchBar = () => {
     const matches = useMediaQuery('(max-width: 475px)');

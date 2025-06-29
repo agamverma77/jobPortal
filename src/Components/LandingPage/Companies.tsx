@@ -1,5 +1,6 @@
 import Marquee from "react-fast-marquee";
-import { companies } from "../Data/Data";
+import { companies } from "../../Data/Data";
+
 
 const Companies=()=>{
     return <div className="mt-20 pb-5">
