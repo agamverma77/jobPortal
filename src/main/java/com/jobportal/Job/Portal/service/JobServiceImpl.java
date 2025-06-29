@@ -11,6 +11,7 @@ import com.jobportal.Job.Portal.dto.ApplicantDTO;
 import com.jobportal.Job.Portal.dto.Application;
 import com.jobportal.Job.Portal.dto.ApplicationStatus;
 import com.jobportal.Job.Portal.dto.JobDTO;
+import com.jobportal.Job.Portal.dto.JobStatus;
 import com.jobportal.Job.Portal.entity.Applicant;
 import com.jobportal.Job.Portal.entity.Job;
 import com.jobportal.Job.Portal.exception.JobPortalException;
@@ -26,8 +27,17 @@ public class JobServiceImpl implements JobService {
 
 	@Override
 	public JobDTO postJob(@Valid JobDTO jobDTO) throws JobPortalException {
+		if(jobDTO.getId()==0)//if job id =0 then we assign it a new id and set post time
+		{
 		jobDTO.setId(Utilities.getNextSequence("jobs")); //first set the id of job
 		jobDTO.setPostTime(LocalDateTime.now());//set the posting time of job
+		}
+		else//if job already exists , we first find the job
+		{
+			Job job=jobRepository.findById(jobDTO.getId()).orElseThrow(()->new JobPortalException("JOB_NOT-FOUND"));//we found the job
+			//if job status is draft , eg. I wrote it 4 days back & I'm posting it today then I have to change(update) its posting time
+			if(job.getJobStatus().equals(JobStatus.DRAFT)||job.getJobStatus().equals(JobStatus.CLOSED))jobDTO.setPostTime(LocalDateTime.now());
+		}
 		return jobRepository.save(jobDTO.toEntity()).toDTO();//save the job in entity and return as dto
 	}
 
