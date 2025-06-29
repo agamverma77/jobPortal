@@ -12,11 +12,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.jobportal.Job.Portal.dto.LoginDTO;
+import com.jobportal.Job.Portal.dto.NotificationDTO;
 import com.jobportal.Job.Portal.dto.ResponseDTO;
 import com.jobportal.Job.Portal.dto.UserDTO;
 import com.jobportal.Job.Portal.entity.OTP;
 import com.jobportal.Job.Portal.entity.User;
 import com.jobportal.Job.Portal.exception.JobPortalException;
+import com.jobportal.Job.Portal.repository.NotificationRepository;
 import com.jobportal.Job.Portal.repository.OTPRepository;
 import com.jobportal.Job.Portal.repository.UserRepository;
 import com.jobportal.Job.Portal.utility.Data;
@@ -37,6 +39,9 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private ProfileService profileService;
+	
+	@Autowired
+	private NotificationService notificationService;
 
 	@Override
 	public UserDTO registerUser(UserDTO userDTO) throws JobPortalException {
@@ -83,6 +88,14 @@ public class UserServiceImpl implements UserService {
 				.orElseThrow(() -> new JobPortalException("USER_NOT_FOUND"));//we'll take email & if user not found give exception
 		user.setPassword(passwordEncoder.encode(loginDTO.getPassword()));
 		userRepository.save(user);//set new password and save
+		
+		//send notification when password change
+		NotificationDTO noti=new NotificationDTO(); //make obj of notificationDTO & with that set the notification and give it to notificationservice which sends notification
+		noti.setUserId(user.getId());//set id of notification
+		noti.setMessage("Password reset successfull");
+		noti.setAction("Password Reset");
+		notificationService.sendNotification(noti);
+		
 		return new ResponseDTO("Password changed successfully.");
 	}
 	@Scheduled(fixedRate = 60000)//kitni kitni der baad run hoga ye func

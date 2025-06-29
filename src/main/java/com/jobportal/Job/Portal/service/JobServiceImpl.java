@@ -12,6 +12,7 @@ import com.jobportal.Job.Portal.dto.Application;
 import com.jobportal.Job.Portal.dto.ApplicationStatus;
 import com.jobportal.Job.Portal.dto.JobDTO;
 import com.jobportal.Job.Portal.dto.JobStatus;
+import com.jobportal.Job.Portal.dto.NotificationDTO;
 import com.jobportal.Job.Portal.entity.Applicant;
 import com.jobportal.Job.Portal.entity.Job;
 import com.jobportal.Job.Portal.exception.JobPortalException;
@@ -24,6 +25,9 @@ import jakarta.validation.Valid;
 public class JobServiceImpl implements JobService {
 	@Autowired
 	private JobRepository jobRepository;
+	
+	@Autowired
+	private NotificationService notificationService;
 
 	@Override
 	public JobDTO postJob(@Valid JobDTO jobDTO) throws JobPortalException {
@@ -31,6 +35,13 @@ public class JobServiceImpl implements JobService {
 		{
 		jobDTO.setId(Utilities.getNextSequence("jobs")); //first set the id of job
 		jobDTO.setPostTime(LocalDateTime.now());//set the posting time of job
+		NotificationDTO notiDto=new NotificationDTO();
+		notiDto.setAction("Job Posted");
+		notiDto.setMessage("Job Posted Successfully for "+jobDTO.getJobTitle()+" at "+ jobDTO.getCompany());
+		
+		notiDto.setUserId(jobDTO.getPostedBy());
+		notiDto.setRoute("/posted-jobs/"+jobDTO.getId()); //go to the job posted on clicking notification
+			notificationService.sendNotification(notiDto);
 		}
 		else//if job already exists , we first find the job
 		{
@@ -76,6 +87,22 @@ public class JobServiceImpl implements JobService {
 				x.setApplicationStatus(application.getApplicationStatus()); 
 				if(application.getApplicationStatus().equals(ApplicationStatus.INTERVIEWING)) {
 					x.setInterviewTime(application.getInterviewTime());//if status is interviewing set interview time
+					
+					
+					NotificationDTO notiDto=new NotificationDTO(); // make obj of notificationDTO
+					notiDto.setAction("Interview Scheduled");//set the notification like did before while sending notificatino of change password
+					notiDto.setMessage("Interview scheduled for job id: "+application.getId());
+					notiDto.setUserId(application.getApplicantId());
+					notiDto.setRoute("/job-history");//then go to job history page
+					try {
+						notificationService.sendNotification(notiDto);
+					} catch (JobPortalException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+
+					
+					
 				}
 			}
 			return x;//if status is not interviewing and something else then it simply changes the status
