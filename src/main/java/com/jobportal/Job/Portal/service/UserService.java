@@ -18,4 +18,6 @@ public interface UserService {
 	public Boolean verifyOtp(String email, String otp) throws JobPortalException;
 
 	public ResponseDTO changePassword( LoginDTO loginDTO) throws JobPortalException;
+
+	public UserDTO getUserByEmail(String email) throws JobPortalException;
 }
