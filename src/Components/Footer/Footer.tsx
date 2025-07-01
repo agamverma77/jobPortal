@@ -28,9 +28,6 @@ const Footer = () => {
         }
     </div>
     <Divider/>
-    {/*<div data-aos="flip-left"  data-aos-offset="0" className="font-medium text-center p-5">
-        Designed & Developed By <a className="text-bright-sun-400 hover:underline font-semibold " href="https://github.com/Code-Mars">Chandrabhan Maurya</a>
-    </div>*/}
     </div>:<></>
 }
 export default Footer;
