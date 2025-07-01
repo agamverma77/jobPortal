@@ -4,11 +4,11 @@ import JobCard from "./JobCard";
 import { useEffect, useState } from "react";
 import { getAllJobs } from "../../Services/JobService";
 import { useDispatch, useSelector } from "react-redux";
+import { resetFilter } from "../../Slices/FilterSlice";
+import { resetSort } from "../../Slices/SortSlice";
+import { hideOverlay, showOverlay } from "../../Slices/OverlaySlice";
 import { Button } from "@mantine/core";
 import { IconX } from "@tabler/icons-react";
-import { resetFilter } from "../../Slices/FilterSlice";
-import { hideOverlay, showOverlay } from "../../Slices/OverlaySlice";
-import { resetSort } from "../../Slices/SortSlice";
 
 const Jobs = () => {
     const dispatch=useDispatch();

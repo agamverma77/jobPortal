@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Checkbox, Combobox, Group, Input, Pill, PillsInput, ScrollArea, useCombobox } from '@mantine/core';
 import { IconSelector } from '@tabler/icons-react';
-
+import { updateFilter } from '../../Slices/FilterSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { current } from '@reduxjs/toolkit';
-import { updateFilter } from '../../Slices/FilterSlice';
 
 const MultiInput = (props:any) => {
     const dispatch=useDispatch();

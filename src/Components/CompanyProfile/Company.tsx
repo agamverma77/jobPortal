@@ -1,10 +1,8 @@
 import { Avatar, Divider, Tabs } from "@mantine/core";
 import { IconMapPin} from "@tabler/icons-react";
-
-import CompanyEmployees from "./CompanyEmployees";
-import CompanyJobs from "./CompanyJobs";
 import AboutComp from "./AboutComp";
-
+import CompanyJobs from "./CompanyJobs";
+import CompanyEmployees from "./CompanyEmployees";
 
 const Company = () => {
     const section=["About", "Jobs", "Employees"]

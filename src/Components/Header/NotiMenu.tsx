@@ -4,8 +4,8 @@ import { get } from "http";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { read } from "fs";
 import { getNotifications, readNotification } from "../../Services/NotiService";
+import { read } from "fs";
 
 const NotiMenu = () => {
     const navigate=useNavigate();

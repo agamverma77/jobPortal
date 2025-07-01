@@ -31,7 +31,7 @@ public class JobServiceImpl implements JobService {
 
 	@Override
 	public JobDTO postJob(@Valid JobDTO jobDTO) throws JobPortalException {
-		if(jobDTO.getId()==0)//if job id =0 then we assign it a new id and set post time
+		if (jobDTO.getId() == null || jobDTO.getId() == 0)//if job id =0 then we assign it a new id and set post time
 		{
 		jobDTO.setId(Utilities.getNextSequence("jobs")); //first set the id of job
 		jobDTO.setPostTime(LocalDateTime.now());//set the posting time of job

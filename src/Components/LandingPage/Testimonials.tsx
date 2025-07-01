@@ -1,5 +1,5 @@
 import { Avatar, Rating } from "@mantine/core";
-import { testimonials } from "../Data/Data";
+import { testimonials } from "../../Data/Data";
 
 const Testimonials = () => {
     return <div className="mt-20 pb-5 p-5 overflow-hidden">

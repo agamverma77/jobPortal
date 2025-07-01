@@ -1,13 +1,11 @@
 import { Button, Collapse, Divider, Input, RangeSlider } from "@mantine/core";
 import React, { useState } from "react";
 import MultiInput from "../FindJobs/MultiInput";
-
+import { searchFields } from "../../Data/TalentData";
 import { IconUserCircle } from "@tabler/icons-react";
+import { updateFilter } from "../../Slices/FilterSlice";
 import { useDispatch } from "react-redux";
 import { useDebouncedState, useDisclosure, useMediaQuery } from "@mantine/hooks";
-import { searchFields } from "../../Data/TalentData";
-import { updateFilter } from "../../Slices/FilterSlice";
-
 
 const SearchBar = () => {
     const dispatch = useDispatch();

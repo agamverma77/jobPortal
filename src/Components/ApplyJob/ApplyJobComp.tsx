@@ -19,6 +19,5 @@ const ApplyJobComp = (props:any) => {
         <Divider size="xs" my="xl" />
        <ApplicationForm/>
     </div>
-    
 }
 export default ApplyJobComp;

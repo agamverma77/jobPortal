@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
+import { talents } from "../../Data/TalentData";
 import Sort from "../FindJobs/Sort";
-
+import TalentCard from "./TalentCard";
 import { getAllProfiles } from "../../Services/ProfileService";
 import { useDispatch, useSelector } from "react-redux";
-
-import TalentCard from "./TalentCard";
 import { resetFilter } from "../../Slices/FilterSlice";
 import { hideOverlay, showOverlay } from "../../Slices/OverlaySlice";
 

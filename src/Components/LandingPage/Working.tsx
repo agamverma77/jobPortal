@@ -1,8 +1,6 @@
 import { Avatar } from "@mantine/core";
 import { work } from "../../Data/Data";
 
-
-
 const Working = () => {
     return <div className="mt-20 pb-5 overflow-hidden">
         <div data-aos="zoom-out" className="text-4xl  md-mx:text-3xl sm-mx:text-2xl xs-mx:text-xl text-center font-semibold mb-3 text-mine-shaft-100">How it <span className="text-bright-sun-400">Works</span></div>

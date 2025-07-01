@@ -1,6 +1,6 @@
+
 import { similar } from "../../Data/Company";
 import CompanyCard from "./CompanyCard";
-
 
 const SimilarCompanies = () => {
     return <div className="w-1/4">

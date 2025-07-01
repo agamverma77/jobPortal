@@ -1,9 +1,8 @@
 
 import { useEffect, useState } from "react";
-
+import TalentCard from "../FindTalent/TalentCard";
 import { getAllProfiles } from "../../Services/ProfileService";
 import { useParams } from "react-router-dom";
-import TalentCard from "../FindTalent/TalentCard";
 
 const RecommendTalent = (props:any) => {
     const {id}=useParams();
