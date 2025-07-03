@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="D:\Job Portal\Job-Portal\server"/>
 			<item value="C:\Users\Dell\Downloads\Job Portal"/>
 			<item value="C:\Users\Dell\Downloads\Job Portal\Job-Portal"/>
 		</list>
