@@ -1,5 +1,7 @@
 package com.jobportal.Job.Portal;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -46,7 +48,10 @@ public class SecurityConfig {
 	    @Bean
 	    public CorsConfigurationSource corsConfigurationSource() {
 	        CorsConfiguration configuration = new CorsConfiguration();
-	        configuration.addAllowedOrigin("http://localhost:3000");
+	        configuration.setAllowedOrigins(List.of(
+        "http://localhost:3000", 
+        "https://jobportal-1-ocsc.onrender.com"
+    ));
 	        configuration.addAllowedMethod("*");
 	        configuration.addAllowedHeader("*");
 	        configuration.setAllowCredentials(true); // important if you're using cookies or Authorization header
