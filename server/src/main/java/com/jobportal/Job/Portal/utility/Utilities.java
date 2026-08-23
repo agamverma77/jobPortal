@@ -27,8 +27,8 @@ public class Utilities {
 		Query query=new Query(Criteria.where("_id").is(key));
 		Update update=new Update();
 		update.inc("seq",1);
-		FindAndModifyOptions options =new FindAndModifyOptions();
-		options.returnNew(true);
+		FindAndModifyOptions options = new FindAndModifyOptions();
+		options.returnNew(true).upsert(true);
 		Sequence seq=mongoOperation.findAndModify(query, update, options,Sequence.class);
 		if(seq==null) throw new JobPortalException("Unable to get sequence id for key: "+key);
 		return seq.getSeq();
